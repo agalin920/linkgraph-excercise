@@ -13,6 +13,7 @@ function NameInput() {
 
   return (
     <div>
+      <h2>QUESTION 1</h2>
       <label htmlFor="name">Name</label>
       <input 
         name="name"

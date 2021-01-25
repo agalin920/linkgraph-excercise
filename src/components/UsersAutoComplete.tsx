@@ -15,7 +15,7 @@ function UsersAutoComplete({users, setUsersData}: UsersAutoCompleteProps) {
   const [textInput, setTextInput] = useState('');
 
   useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/users').then((response) => {
+    axios.get('https://jsonplaceholder.typicode.com/users').then((response: any) => {
       setUsersData(response.data);
     })
   }, []);
@@ -31,6 +31,7 @@ function UsersAutoComplete({users, setUsersData}: UsersAutoCompleteProps) {
 
   return (
     <div>
+      <h2>QUESTION 3</h2>
       <input type="text" onChange={(e) => setTextInput(e.target.value)} value={textInput} placeholder="Enter a user's name"></input>
       <ul>
         {suggestions.map(suggestion => {

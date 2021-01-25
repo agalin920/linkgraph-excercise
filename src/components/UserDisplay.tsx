@@ -14,20 +14,21 @@ interface UserDisplayProps {
 
 function UserDisplay({users, setUsersData}: UserDisplayProps) {
   useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/users').then((response) => {
+    axios.get('https://jsonplaceholder.typicode.com/users').then((response: any) => {
       setUsersData(response.data);
     })
   }, []);
 
   return (
     <div>
+      <h2>QUESTION 2</h2>
       {users.map((user => {
         return (
           <div>
             <div>{user.name}</div>
             <div>{user.address.street}</div>
             <div>{user.address.suite}</div>
-            <SimpleMap center={{lat: user.address.geo.lat, lng: user.address.geo.lng}}/>
+            <SimpleMap center={{lat: +user.address.geo.lat, lng: +user.address.geo.lng}}/>
           </div>
         )
       }))}

@@ -11,12 +11,16 @@ interface Center {
 }
  
 function SimpleMap({center}: SimpleMapsProps) {
+    let apiKey: string;
+    if(process.env.MAPS_API_KEY){
+      apiKey = process.env.MAPS_API_KEY;
+    }
     return (
-      <div style={{ height: '100px', width: 'auto' }}>
+      <div style={{ height: '300px', width: '300px' }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: 'someKey'}}
+          bootstrapURLKeys={{ key: apiKey!}}
           defaultCenter={center}
-          defaultZoom={11}
+          defaultZoom={2}
         >
         </GoogleMapReact>
       </div>
